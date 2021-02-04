@@ -34,6 +34,10 @@ namespace Assignment3.Controllers
         {
             if (ModelState.IsValid)
             { //checking model state
+                if (AppResponse.Title == "Independence Day")
+                {
+                    return View("Confirmation", AppResponse);
+                }
                 Temp.AddApplication(AppResponse);
                 return View("Confirmation", AppResponse);
             }
