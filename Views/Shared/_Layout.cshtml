@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>The Joel Hilton Film Collection</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+    <script src="~/js/site.js"></script>
+</head>
+
+<body>
+    <div class="topnav" id="myTopnav">
+        <a href="../">Home</a>
+        <a href="https://baconsale.com/">Podcast</a>
+        <a asp-action="Add">Add Movie</a>
+        <a asp-action="Movies">View Movies</a>
+    </div>
+  
+    <div class="col-3 col-s-12">
+        <div class="asideList" style="height: 700px;">
+            <h1>@ViewBag.Title</h1>
+            <br>
+            @RenderBody()
+
+            <br />
+            <br />
+
+
+        </div>
+    </div>
+
+
+   
+
+</body>
+
+</html>
