@@ -32,12 +32,12 @@ namespace Assignment3.Controllers
         [HttpPost]
         public IActionResult Add(ApplicationResponse AppResponse)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             { //checking model state
-                return View(AppResponse);
+                Temp.AddApplication(AppResponse);
+                return View("Confirmation", AppResponse);
             }
-            Temp.AddApplication(AppResponse);
-            return View("Confirmation");
+            return View();
         }
 
         public IActionResult Movies()
