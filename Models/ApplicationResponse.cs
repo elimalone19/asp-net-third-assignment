@@ -25,6 +25,7 @@ namespace Assignment3.Models
 
         public bool Edited { get; set; }
         public string Lent { get; set; }
+        [StringLength(25)]
         public string Notes { get; set; }
 
     }

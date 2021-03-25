@@ -6,7 +6,6 @@
 }
 
 @model IEnumerable<Assignment3.Models.ApplicationResponse>
-
 <div class="container">
     <table>
         <thead>
@@ -19,10 +18,12 @@
                 <th>Edited</th>
                 <th>Lent To</th>
                 <th>Notes</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
-            
+            <!-- for loop to display table-->
             @foreach (Assignment3.Models.ApplicationResponse x in Model)
             {
                 <tr>
@@ -34,9 +35,10 @@
                     <td>@x.Edited</td>
                     <td>@x.Lent To </td>
                     <td>@x.Notes</td>
+                    <td><button type="submit" class="btn btn-primary">Edit</button></td>
+                    <td><button type="submit" class="btn btn-warning">Delete</button></td>
                 </tr>
             }
-
         </tbody>
     </table>
 </div>
