@@ -5,9 +5,9 @@
     ViewBag.Title = "Add a Movie";
 }
 
-@model Assignment3.Models.ApplicationResponse
+@model Assignment3.Models.Movie
 
-<form style="float:center;" asp-action="Add" method="post">
+<form asp-action="Add" method="post">
     <label asp-for="Category" >Category:</label>
     <input asp-for="Category" />
     <br />

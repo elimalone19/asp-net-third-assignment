@@ -11,11 +11,13 @@ namespace Assignment3.Controllers
 {
     public class HomeController : Controller
     {
+        private MoviesDbContext context { get; set; }
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, MoviesDbContext con)
         {
             _logger = logger;
+            context = con;
         }
 
         public IActionResult Index()
@@ -30,23 +32,26 @@ namespace Assignment3.Controllers
         }
 
         [HttpPost]
-        public IActionResult Add(ApplicationResponse AppResponse)
+        public IActionResult Add(Movie movie)
         {
             if (ModelState.IsValid)
             { //checking model state
-                if (AppResponse.Title == "Independence Day")
+                if (movie.Title == "Independence Day")
                 {
-                    return View("Confirmation", AppResponse);
+                    
+                    return View("Confirmation", movie);
                 }
-                Temp.AddApplication(AppResponse);
-                return View("Confirmation", AppResponse);
+                context.Movies.Add(movie);
+                context.SaveChanges();
+                Temp.AddMovie(movie);
+                return View("Confirmation", movie);
             }
             return View();
         }
 
         public IActionResult Movies()
         {
-            return View(Temp.Applications);
+            return View(context.Movies);
         }
 
         public IActionResult Privacy()

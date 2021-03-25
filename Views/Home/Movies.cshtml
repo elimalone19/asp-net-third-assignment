@@ -5,7 +5,7 @@
     ViewBag.Title = "Joel Hilton's Movies";
 }
 
-@model IEnumerable<Assignment3.Models.ApplicationResponse>
+@model IEnumerable<Assignment3.Models.Movie>
 <div class="container">
     <table>
         <thead>
@@ -24,7 +24,7 @@
         </thead>
         <tbody>
             <!-- for loop to display table-->
-            @foreach (Assignment3.Models.ApplicationResponse x in Model)
+            @foreach (Assignment3.Models.Movie x in Model)
             {
                 <tr>
                     <td>@x.Category</td>
@@ -33,7 +33,7 @@
                     <td>@x.Director</td>
                     <td>@x.Rating</td>
                     <td>@x.Edited</td>
-                    <td>@x.Lent To </td>
+                    <td>@x.Lent</td>
                     <td>@x.Notes</td>
                     <td><button type="submit" class="btn btn-primary">Edit</button></td>
                     <td><button type="submit" class="btn btn-warning">Delete</button></td>

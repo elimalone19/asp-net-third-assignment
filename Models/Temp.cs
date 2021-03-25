@@ -7,13 +7,13 @@ namespace Assignment3.Models
 {
     public class Temp
     {
-        private static List<ApplicationResponse> applications = new List<ApplicationResponse>();
+        private static List<Movie> movies = new List<Movie>();
 
-        public static IEnumerable<ApplicationResponse> Applications => applications;
+        public static IEnumerable<Movie> Movies => movies;
 
-        public static void AddApplication(ApplicationResponse application)
+        public static void AddMovie(Movie movie)
         {
-            applications.Add(application);
+            movies.Add(movie);
         }
     }
 }
