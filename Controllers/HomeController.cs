@@ -49,10 +49,27 @@ namespace Assignment3.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Movies()
         {
             return View(context.Movies);
         }
+
+        [HttpPost]
+        public IActionResult Delete(int MovieId)
+        {
+            context.Movies.Remove(context.Movies.Find(MovieId));
+            context.SaveChanges();
+            return View("Deletion");
+        }
+
+        [HttpGet]
+        public IActionResult Edit(int MovieId)
+        {
+            return View("Edit");
+        }
+
+
 
         public IActionResult Privacy()
         {
