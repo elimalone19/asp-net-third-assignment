@@ -55,6 +55,8 @@ namespace Assignment3.Controllers
             return View(context.Movies);
         }
 
+        // delete page
+
         [HttpPost]
         public IActionResult Delete(int MovieId)
         {
@@ -63,10 +65,28 @@ namespace Assignment3.Controllers
             return View("Deletion");
         }
 
+        // edit page
+
         [HttpGet]
         public IActionResult Edit(int MovieId)
         {
-            return View("Edit");
+            return View("Edit", context.Movies.Find(MovieId));
+        }
+
+        [HttpPost]
+        public IActionResult Edit(Movie movie)
+        {
+            if (ModelState.IsValid)
+            { //checking model state
+                if (movie.Title == "Independence Day")
+                {
+                    return View("Confirmation", movie);
+                }
+                context.Movies.Update(movie);
+                context.SaveChanges();
+                return View("Edited");
+            }
+            return View();
         }
 
 

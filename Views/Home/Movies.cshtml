@@ -36,7 +36,7 @@
                 <td>@x.Lent</td>
                 <td>@x.Notes</td>
                 <td>
-                    <form method="post" asp-action="Edit">
+                    <form method="get" asp-action="Edit">
                         <input hidden type="text" value="@x.MovieId" name="MovieId" />
                         <input type="submit" class="btn btn-warning" value="Edit" />
                     </form>
